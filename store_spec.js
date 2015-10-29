@@ -36,4 +36,19 @@ describe("Store", function(){
         expect(store.items[1].quality).not.toBeLessThan(0);
         store.setItems([]);
     });
+    
+    it('should decrease sell_in for item in index 0', function(){
+        store.items.push(new Item('item_1', 4, 6));
+        store.update_inventory_sell_in();
+        expect(store.items[0].sell_in).toBeLessThan(4);
+        store.setItems([]);
+    });
+    
+    it('should decrease sell_in for item in index 0', function(){
+        store.items.push(new Item('item_1', 4, 6));
+        store.items.push(new Item('item_2', 3, 6));
+        store.update_inventory_sell_in();
+        expect(store.items[1].sell_in).toBeLessThan(3);
+        store.setItems([]);
+    });
 });

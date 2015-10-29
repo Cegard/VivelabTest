@@ -15,6 +15,13 @@ module.exports = class Store{
         }
     }
     
+    update_inventory_sell_in(){
+        
+        for(var item_index in this.items){
+            this.items[item_index].sell_in--;
+        }
+    }
+    
     setItems (items){
         this.items = items;
     }
