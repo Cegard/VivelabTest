@@ -1,7 +1,10 @@
-module.exports = {
-    items : [],
+'use strict';
+
+module.exports = class Store{
     
-    update_quality : function() {
+    constructor () {}
+    
+    update_quality() {
       for (var i = 0; i < items.length; i++) {
         if (items[i].name != 'Aged Brie' && items[i].name != 'Backstage passes to a TAFKAL80ETC concert') {
           if (items[i].quality > 0) {
