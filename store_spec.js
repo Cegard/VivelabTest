@@ -2,9 +2,11 @@
 
 let Store = require('./store.js');
 let Item = require('./item.js');
-var store = new Store();
 
 describe("Store", function(){
+    
+    var store = new Store();
+    
     it('should be a store', function(){
         expect(store).toBeDefined(true);
     });
@@ -44,11 +46,12 @@ describe("Store", function(){
         store.setItems([]);
     });
     
-    it('should decrease sell_in for item in index 0', function(){
+    it('should decrease sell_in for item in index 1', function(){
         store.items.push(new Item('item_1', 4, 6));
         store.items.push(new Item('item_2', 3, 6));
         store.update_inventory_sell_in();
         expect(store.items[1].sell_in).toBeLessThan(3);
+        //console.log(sotre['items'])
         store.setItems([]);
     });
 });

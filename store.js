@@ -1,12 +1,10 @@
 'use strict';
 
-module.exports = class Store{
+function Store  (){
     
-    constructor () {
-        this.items = [];
-    }
+    this.items = [];
     
-    update_inventory_quality(){
+    this.update_inventory_quality = function(){
         
         for(var item_index in this.items){
             
@@ -15,18 +13,18 @@ module.exports = class Store{
         }
     }
     
-    update_inventory_sell_in(){
+    this.update_inventory_sell_in = function(){
         
         for(var item_index in this.items){
             this.items[item_index].sell_in--;
         }
     }
     
-    setItems (items){
+    this.setItems = function (items){
         this.items = items;
     }
     
-    update_quality() {
+    var update_quality  = function() {
       for (var i = 0; i < this.items.length; i++) {
         if (this.items[i].name != 'Aged Brie' && this.items[i].name != 'Backstage passes to a TAFKAL80ETC concert') {
           if (this.items[i].quality > 0) {
@@ -74,3 +72,5 @@ module.exports = class Store{
       }
     }
 }
+
+module.exports = Store;
